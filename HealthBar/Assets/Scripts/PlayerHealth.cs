@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public void MoveSlider()
     {
         CheckCoroutine();
-        _coroutine = StartCoroutine(MovingSlider(ChangeHealth.ShowInfo()));
+        _coroutine = StartCoroutine(MovingSlider(ChangeHealth.ShowHealth()));
     }
 
     private void CheckCoroutine()

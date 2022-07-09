@@ -17,7 +17,7 @@ public class ChangeHealth : MonoBehaviour
         _currentHealth += _changeAmount;
     }
 
-    public static float ShowInfo()
+    public static float ShowHealth()
     {
         return _currentHealth;
     }
