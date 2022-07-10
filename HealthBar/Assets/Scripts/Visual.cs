@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour
+public class Visual : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
 
-    private float _targetHealth;
-    private float _healthScale = 0.1f;
+    private float _scale = 0.1f;
     private Coroutine _coroutine;
+    private float _changeShow = 10f;
 
-    public void MoveSlider()
+    public void ShowHeal()
     {
         CheckCoroutine();
-        _coroutine = StartCoroutine(MovingSlider(ChangeHealth.ShowHealth()));
+        _coroutine = StartCoroutine(ShowChange(_slider.value + _changeShow));
+    }
+
+    public void ShowDamage()
+    {
+        CheckCoroutine();
+        _coroutine = StartCoroutine(ShowChange(_slider.value - _changeShow));
     }
 
     private void CheckCoroutine()
@@ -25,14 +31,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private IEnumerator MovingSlider(float targetHealth)
+    private IEnumerator ShowChange(float targetHealth)
     {
         float waitTime = 0.01f;
         var waitType = new WaitForSeconds(waitTime);
 
         while (_slider.value != targetHealth)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, targetHealth, _healthScale);
+            _slider.value = Mathf.MoveTowards(_slider.value, targetHealth, _scale);
             yield return waitType;
         }
     }

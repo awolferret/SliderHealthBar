@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52315345}
   - component: {fileID: 52315346}
+  - component: {fileID: 52315347}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -208,10 +209,23 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &52315347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52315344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f231fac306a18a478c27c6c8281399a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 52315346}
 --- !u!1 &181889906
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +339,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -341,19 +354,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f231fac306a18a478c27c6c8281399a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slider: {fileID: 52315346}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -803,9 +803,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 519420030}
+      - m_Target: {fileID: 1689299390}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 52315347}
         m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: DamageHealth
+        m_MethodName: MoveSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -862,10 +874,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1689299385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf78ce345206a564c888b04d555d2f77, type: 3}
+  m_Script: {fileID: 11500000, guid: 649f417f07a55014e87d46ac82d11232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 52315346}
 --- !u!1 &1820798762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,8 +1064,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2089711270}
-        m_TargetAssemblyTypeName: Heal, Assembly-CSharp
-        m_MethodName: HealthToHeal
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Heal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 52315347}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: MoveSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1111,8 +1134,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2089711265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f7ff12d40547649b43f474894b6f19, type: 3}
+  m_Script: {fileID: 11500000, guid: 649f417f07a55014e87d46ac82d11232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 52315346}
-  _targetHealth: 0
