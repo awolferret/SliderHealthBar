@@ -18,7 +18,10 @@ public class Visual : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _coroutine = StartCoroutine(ChangeHealth(_health.ShowHealth()));
+        if (_slider.value != _health.ShowHealth())
+        {
+            _coroutine = StartCoroutine(ChangeHealth(_health.ShowHealth()));
+        }
     }
 
     private IEnumerator ChangeHealth(float targetHealth)
