@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 52315345}
   - component: {fileID: 52315346}
-  - component: {fileID: 52315347}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -213,19 +212,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &52315347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52315344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f231fac306a18a478c27c6c8281399a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slider: {fileID: 52315346}
 --- !u!1 &181889906
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +224,7 @@ GameObject:
   - component: {fileID: 181889909}
   - component: {fileID: 181889908}
   - component: {fileID: 181889907}
+  - component: {fileID: 181889911}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -317,8 +304,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2089711266}
   - {fileID: 1689299386}
+  - {fileID: 2089711266}
   - {fileID: 52315345}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -328,6 +315,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &181889911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181889906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649f417f07a55014e87d46ac82d11232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +730,6 @@ GameObject:
   - component: {fileID: 1689299389}
   - component: {fileID: 1689299388}
   - component: {fileID: 1689299387}
-  - component: {fileID: 1689299390}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -746,17 +744,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689299385}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 836389726}
   m_Father: {fileID: 181889910}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -166.49998, y: 272}
+  m_AnchoredPosition: {x: -166.50012, y: 272.00003}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1689299387
@@ -803,27 +801,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1689299390}
+      - m_Target: {fileID: 181889911}
         m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: Damage
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 52315347}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: MoveSlider
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 10
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -865,18 +851,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689299385}
   m_CullTransparentMesh: 1
---- !u!114 &1689299390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689299385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649f417f07a55014e87d46ac82d11232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1820798762
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,7 +965,6 @@ GameObject:
   - component: {fileID: 2089711269}
   - component: {fileID: 2089711268}
   - component: {fileID: 2089711267}
-  - component: {fileID: 2089711270}
   m_Layer: 5
   m_Name: Heal
   m_TagString: Untagged
@@ -1006,17 +979,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089711265}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1116534608}
   m_Father: {fileID: 181889910}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 166.50002, y: -99}
+  m_AnchoredPosition: {x: 166.5, y: -99.00001}
   m_SizeDelta: {x: 160, y: -712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2089711267
@@ -1063,27 +1036,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2089711270}
+      - m_Target: {fileID: 181889911}
         m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: Heal
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 52315347}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: MoveSlider
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 10
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1125,15 +1086,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089711265}
   m_CullTransparentMesh: 1
---- !u!114 &2089711270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089711265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649f417f07a55014e87d46ac82d11232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
