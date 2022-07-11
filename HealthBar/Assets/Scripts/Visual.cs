@@ -24,8 +24,8 @@ public class Visual : MonoBehaviour
     private IEnumerator ChangeHealth(float targetHealth)
     {
         float waitTime = 0.01f;
-        var waitType = new WaitForSeconds(waitTime);
         float _scale = 0.01f;
+        var waitType = new WaitForSeconds(waitTime);
 
         while (_slider.value != targetHealth)
         {
