@@ -11,23 +11,29 @@ public class Visual : MonoBehaviour
     private Health _health;
     private Coroutine _coroutine;
 
+    public void ShowChange()
+    {
+        StopCoroutine();
+        _coroutine = StartCoroutine(ChangeHealth(_health.ShowHealth()));
+    }
+
     private void Start()
     {
         _health = GetComponent<Health>();
     }
 
-    private void FixedUpdate()
+    private void StopCoroutine()
     {
-        if (_slider.value != _health.ShowHealth())
+        if (_coroutine != null)
         {
-            _coroutine = StartCoroutine(ChangeHealth(_health.ShowHealth()));
+            StopCoroutine(_coroutine);
         }
     }
 
     private IEnumerator ChangeHealth(float targetHealth)
     {
         float waitTime = 0.01f;
-        float _scale = 0.01f;
+        float _scale = 0.1f;
         var waitType = new WaitForSeconds(waitTime);
 
         while (_slider.value != targetHealth)
