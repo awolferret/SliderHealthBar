@@ -11,15 +11,25 @@ public class Visual : MonoBehaviour
     private Health _health;
     private Coroutine _coroutine;
 
-    public void ShowChange()
-    {
-        StopCoroutine();
-        _coroutine = StartCoroutine(ChangeHealth(_health.ShowHealth()));
-    }
-
     private void Start()
     {
         _health = GetComponent<Health>();
+    }
+
+    private void OnEnable()
+    {
+        Health.HealthChanged += ShowChange;
+    }
+
+    private void OnDisable()
+    {
+        Health.HealthChanged -= ShowChange;
+    }
+
+    private void ShowChange()
+    {
+        StopCoroutine();
+        _coroutine = StartCoroutine(ChangeHealth(_health._health));
     }
 
     private void StopCoroutine()

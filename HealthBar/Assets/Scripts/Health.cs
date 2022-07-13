@@ -1,26 +1,22 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _healthChanged;
+    public static event Action HealthChanged;
 
-    private float _health;
+    public float _health { get; private set; }
 
     public void Heal(float healAmount)
     {
         _health += healAmount;
-        _healthChanged.Invoke();
+        HealthChanged?.Invoke();
     }
 
     public void Damage(float damageAmount)
     {
         _health -= damageAmount;
-        _healthChanged.Invoke();
-    }
-
-    public float ShowHealth()
-    {
-        return _health;
+        HealthChanged?.Invoke();
     }
 }
